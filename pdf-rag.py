@@ -91,5 +91,5 @@ chain = (
     | StrOutputParser()
 )
 
-res = chain.invoke(input=("How to report BOI?",))
+res = chain.invoke(input=("What are the main points as the business owner I should be aware of?",))
 print(res)
