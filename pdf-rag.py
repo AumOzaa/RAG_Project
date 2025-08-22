@@ -44,7 +44,7 @@ ollama.pull('nomic-embed-text') # Pulling an embed model.
 vector_db = Chroma.from_documents(
     documents=chunks,
     embedding=OllamaEmbeddings(model='nomic-embed-text'),
-    collection_name='simple_rag'
+    collection_name='simple_rag',
 )
 
 print("Done adding to vector databse")
@@ -71,3 +71,24 @@ QUERY_PROMPT = PromptTemplate(
     Original question: {question}
 """
 )
+
+retriever = MultiQueryRetriever.from_llm(
+    vector_db.as_retriever(),llm,prompt=QUERY_PROMPT
+)
+
+# RAG Prompt :
+template = """
+Answer the question based ONLY on the following context:
+{context}
+Question: {question}"""
+prompt = ChatPromptTemplate.from_template(template)
+
+chain = (
+    {"context": retriever, "question": RunnablePassthrough()}
+    | prompt
+    | llm
+    | StrOutputParser()
+)
+
+res = chain.invoke(input=("What is the document about?",))
+print(res)
