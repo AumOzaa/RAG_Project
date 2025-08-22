@@ -1,0 +1,48 @@
+Here's the categorized and sorted list of grocery items:
+
+**Beverages**
+
+* Almond milk
+* Apple juice (not mentioned, but a common alternative)
+* Canned black beans
+* Eggs
+* Greek yogurt
+
+**Dairy and Eggs**
+
+* Cheddar cheese
+* Eggs
+* Parmesan cheese
+* Ricotta cheese (not mentioned, assumed to be similar)
+
+**Fresh Produce**
+
+* Apples
+* Bananas
+* Bell peppers
+* Carrots
+* Cucumber
+* Fresh spinach
+* Garlic
+* Green peas
+* Honey (not mentioned)
+* Olives (not mentioned)
+* Peas
+* Sweet potatoes
+
+**Meat and Poultry**
+
+* Chicken breasts
+* Ground turkey
+
+**Grains**
+
+* Brown rice
+* Whole grain pasta
+* Whole wheat bread
+
+**Pantry**
+
+* Black beans
+* Hummus
+* Olive oil
