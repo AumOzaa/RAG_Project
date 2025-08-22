@@ -11,7 +11,7 @@ from langchain_community.document_loaders import UnstructuredPDFLoader
 from langchain_community.document_loaders import OnlinePDFLoader
 
 doc_path = "/media/aumoza/Strg_1/ollama-finetune/ollamaFreeCodeCamp/BOI.pdf"
-model = "llama3.2:1B "
+model = "llama3.2:1B"
 
 if doc_path:
     loader = UnstructuredPDFLoader(file_path=doc_path)
@@ -38,12 +38,12 @@ print("Done splitting...")
 
 # Adding to vector database:
 import ollama
-ollama.pull('nomic-embed-text') # Pulling an embed model.
+ollama.pull('nomic-embed-text:latest') # Pulling an embed model.
 
 # Creating a vector database :
 vector_db = Chroma.from_documents(
     documents=chunks,
-    embedding=OllamaEmbeddings(model='nomic-embed-text'),
+    embedding=OllamaEmbeddings(model='nomic-embed-text:latest'),
     collection_name='simple_rag',
 )
 
@@ -81,6 +81,7 @@ template = """
 Answer the question based ONLY on the following context:
 {context}
 Question: {question}"""
+
 prompt = ChatPromptTemplate.from_template(template)
 
 chain = (
@@ -90,5 +91,5 @@ chain = (
     | StrOutputParser()
 )
 
-res = chain.invoke(input=("What is the document about?",))
+res = chain.invoke(input=("How to report BOI?",))
 print(res)
